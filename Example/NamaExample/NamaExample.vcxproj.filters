@@ -16,6 +16,9 @@
     <Filter Include="源文件\CrashReport">
       <UniqueIdentifier>{b2ed9423-350a-4d45-b1d9-e15cd34163b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\ipc">
+      <UniqueIdentifier>{c0ab14cf-479a-41df-8bcd-ecd88b8bd80a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CameraDS.cpp">
@@ -33,6 +36,15 @@
     <ClCompile Include="CrashReport\CrashReport.cpp">
       <Filter>源文件\CrashReport</Filter>
     </ClCompile>
+    <ClCompile Include="ipc\ipcbridge.cpp">
+      <Filter>源文件\ipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ipc\mutex.cpp">
+      <Filter>源文件\ipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ipc\waitcondition.cpp">
+      <Filter>源文件\ipc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraDS.h">
@@ -46,6 +58,18 @@
     </ClInclude>
     <ClInclude Include="CrashReport\CrashReport.h">
       <Filter>源文件\CrashReport</Filter>
+    </ClInclude>
+    <ClInclude Include="ipc\ipcbridge.h">
+      <Filter>源文件\ipc</Filter>
+    </ClInclude>
+    <ClInclude Include="ipc\mutex.h">
+      <Filter>源文件\ipc</Filter>
+    </ClInclude>
+    <ClInclude Include="ipc\waitcondition.h">
+      <Filter>源文件\ipc</Filter>
+    </ClInclude>
+    <ClInclude Include="ipc\filtercommons.h">
+      <Filter>源文件\ipc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

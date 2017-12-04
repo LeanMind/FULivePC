@@ -9,6 +9,10 @@
 #include "Nama.h"
 #include <iostream>
 #include <memory>
+//for virtual camera
+#include "ipc/filtercommons.h"
+#include "ipc/ipcbridge.h"
+#include <uuids.h>
 
 #include <string.h>
 #include <gl\glui.h>
@@ -32,6 +36,7 @@ namespace NE
 	int wndHeight = 720;
 	GLuint texID = 0;
 	std::tr1::shared_ptr<Nama> nama;
+	IpcBridge ipcBridge;
 	float timeSinceStart;
 	float deltaTime;
 	int frameRate = 25;
@@ -83,6 +88,12 @@ int main(int argc, char* argv[])
 	printf("渲染器标识符：%s\n", biaoshifu);
 	printf("OpenGL实现的版本号：%s\n", OpenGLVersion);
 	printf("OGLU工具库版本：%s\n", gluVersion);
+	
+	if (!ipcBridge.open(IPC_FILE_NAME, IpcBridge::OpenMode::Write))
+	{
+		printf("open ipc file failed!");
+		return -1;
+	}
 	nama = std::tr1::shared_ptr<Nama>(new Nama);
 	nama->Init(wndWidth, wndHeight);
 	setOpenGLState();
@@ -191,6 +202,9 @@ void NE::namaGlutDisplay(void)
 	
 	std::tr1::shared_ptr<unsigned char> frame = nama->Render();
 	//std::tr1::shared_ptr<unsigned char> frame = nama->RenderEx();	
+
+	size_t frameSize = ipcBridge.write(MEDIASUBTYPE_RGB32, wndWidth, wndHeight, frame.get());
+
 	setTextureData(frame);
 	drawFrame();
 	glutSwapBuffers();

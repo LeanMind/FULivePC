@@ -74,7 +74,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS /NODEFAULTLIB:libcmtd.lib %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/D _CRT_SECURE_NO_WARNINGS %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -122,6 +122,9 @@ xcopy /e /y "$(SolutionDir)..\Example\thirdparty\opengl\bin\Release\*.dll" "$(Ou
     <ClCompile Include="CameraDS.cpp" />
     <ClCompile Include="CrashReport\CrashReport.cpp" />
     <ClCompile Include="GlobalValue.cpp" />
+    <ClCompile Include="ipc\ipcbridge.cpp" />
+    <ClCompile Include="ipc\mutex.cpp" />
+    <ClCompile Include="ipc\waitcondition.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Nama.cpp" />
   </ItemGroup>
@@ -129,6 +132,10 @@ xcopy /e /y "$(SolutionDir)..\Example\thirdparty\opengl\bin\Release\*.dll" "$(Ou
     <ClInclude Include="CameraDS.h" />
     <ClInclude Include="CrashReport\CrashReport.h" />
     <ClInclude Include="GlobalValue.h" />
+    <ClInclude Include="ipc\filtercommons.h" />
+    <ClInclude Include="ipc\ipcbridge.h" />
+    <ClInclude Include="ipc\mutex.h" />
+    <ClInclude Include="ipc\waitcondition.h" />
     <ClInclude Include="Nama.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

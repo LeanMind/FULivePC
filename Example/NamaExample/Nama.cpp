@@ -169,6 +169,7 @@ void NE::Nama::Init(const int width, const int height)
 
 	m_curBundleIdx = -1;
 	NextBundle();
+	fuSetDefaultOrientation(0);
 }
 
 void NE::Nama::SwitchRenderMode()
